@@ -16,10 +16,11 @@
 	<meta property="og:url" content=""/>
 	<meta property="og:site_name" content=""/>
 	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@flickr" />
+	<meta name="twitter:title" content="Small Island Developing States Photo Submission" />
+	<meta name="twitter:description" content="View the album on Flickr." />
+	<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -34,7 +35,7 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet">
 
-	<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 	<script>
   	// Initialize Firebase
   	var config = {
@@ -71,14 +72,11 @@
 	<link rel="stylesheet" href="css/magnific-popup.css">
 
 	<link rel="stylesheet" href="css/style.css">
-
-
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
 	</head>
 	<body>
-
 
 	<nav id="colorlib-main-nav" role="navigation">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
@@ -93,9 +91,9 @@
 						<ul>
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="work.html">Work</a></li>
-							<li><a href="error.html">Blog</a></li>
-							<li><a href="error.html">About</a></li>
-							<li><a href="error.html">Contact</a></li>
+							<li><a href="https://medium.com/fnplus">Blog</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -148,9 +146,9 @@
 										<div class="desc">
 											<span class="tag">Welcome to</span>
 											<h2>Fnplus</h2>
-											<p>A community which believes in improving & enhancing the quality of life using technology. We connect geeks and new perspectives to promote passion, diversity and innovation.
-<p>
-											<p><a href="work.html" class="btn-view">Join Us<i class="icon-arrow-right3"></i></a></p>
+											<p>A community which believes in improving & enhancing the quality of life using technology. We connect geeks and new perspectives to promote empathy, diversity and innovation.
+											</p>
+											<p><a href="work.html" class="btn-view">Who we are<i class="icon-arrow-right3"></i></a></p>
 										</div>
 									</div>
 								</div>
@@ -169,10 +167,10 @@
 									<h2 class="number"></h2>
 									<div class="text-inner">
 										<div class="desc">
-											<span class="tag">We believe in</span>
+											<span class="tag">We love exploring</span>
 											<h2>Technology</h2>
-											<p>As a community of geeks, we believe in cutting edge technology & always love to explore & build upon awesome ideas which can enhance the quality of life. Geek's garage is the innovation hub of our community.</p>
-											<p><a href="work.html" class="btn-view">Know more <i class="icon-arrow-right3"></i></a></p>
+											<p>As a community of geeks, we believe in cutting edge technology & always love to explore & build upon awesome ideas which can enhance the quality of life. Geek's Garages are the innovation hub of our community.</p>
+											<p><a href="work.html" class="btn-view">What we do <i class="icon-arrow-right3"></i></a></p>
 										</div>
 									</div>
 								</div>
@@ -191,7 +189,7 @@
 								<div class="display-tc js-fullheight" style="background: #79f2c03b;">
 									<div class="text-inner">
 										<div class="desc">
-											<span class="tag">We value </span>
+											<span class="tag">We empathize with</span>
 											<h2>Community</h2>
 											<p>In a world of automation & technology, we value people and empathy. We fufill the emotional needs of a geek & help them connect with similar minded people, build strong relationships & solve some of the most complex problems, collaboratively.</p>
 											<p><a href="https://www.facebook.com/groups/dev.rethink/" class="btn-view">Join us<i class="icon-arrow-right3"></i></a></p>
@@ -208,9 +206,7 @@
 
 	<script>
 		const messaging = firebase.messaging();
-		// Add the public key generated from the console here.
 		messaging.usePublicVapidKey('BMXXuXuiGgtBPLsOlj9O8Xeg-D53bZ4xc38saTUWGCQfFnBxhEyhwU3SWxAYxp9KB_Ck8MHMeBPvb5HE9fVfuqg');
-		// [END set_public_vapid_key]
 		  
 		// [START refresh_token]
 		// Callback fired if Instance ID token is updated.
@@ -274,7 +270,7 @@
 			// [START request_permission]
 			messaging.requestPermission().then(function() {
 			console.log('Notification permission granted.');
-			// TODO(developer): Retrieve an Instance ID token for use with FCM.
+			// TODO: Retrieve an Instance ID token for use with FCM. Check token from here.
 			// console.log('Token :', messaging.getToken());
 			
 			}).catch(function(err) {
@@ -301,8 +297,8 @@
 			});
 		  
 		}
-	</script>
 
+	</script>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -318,6 +314,5 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
-
 	</body>
 </html>
