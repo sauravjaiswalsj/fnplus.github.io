@@ -1,6 +1,6 @@
 {
- "name": "Fnplus | Inspiring Minds",
- "short_name" : "Fn+ Community",
+ "name": "Fnplus | Geek's Community",
+ "short_name" : "fn+ community",
  "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",
@@ -19,5 +19,5 @@
  "orientation": "portrait",
  "theme_color": "#ffffff",
  "background_color": "#000000",
- "gcm_sender_id": "103953800507"
+ "gcm_sender_id": "38226611639"
 }
