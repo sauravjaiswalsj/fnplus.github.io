@@ -70,7 +70,7 @@
 							<li><a href="work.html">What we do</a></li>
 							<li><a href="https://medium.com/fnplus">Blog</a></li>
 							<li><a href="about.html">About</a></li>
-							<li class="active"><a href="contact.html">Contact</a></li>
+							<li class="active"><a href="contact.php">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -127,34 +127,50 @@
 								</ul>
 							</div>
 							<div class="col-md-7 col-md-push-1 animate-box">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Name">
+								<form action="" method="post">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Name" name="name" id="name">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Email" name="email" id="email">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message" id="message" name="message"></textarea>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<input type="submit" value="Send Message" class="btn btn-primary btn-submit" id="submit" name="submit">
+											</div>
 										</div>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Email">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="submit" value="Send Message" class="btn btn-primary btn-submit">
-										</div>
-									</div>
-								</div>
+								</form>	
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<?php 
+                if(isset($_POST['submit'])){
+                    $to = "abhishekuniyal09@gmail.com";
+                    $from = $_POST['email'];
+                    $name = $_POST['name'];
+                    $subject = "Enquiry on Fnplus";
+                    $message = $name . "  wrote the following:" . "\n\n" . $_POST['message'];
+                    
+                    $headers = "From:" . $from;
+                    mail($to,$subject,$message,$headers);
+                    echo "<script>alert('Message sent! We will contact you shortly.');</script>";
+                }
+           ?>
 		
 		<div id="colorlib-subscribe">
 			<div class="overlay"></div>
