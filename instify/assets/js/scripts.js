@@ -1,4 +1,3 @@
-var appMaster = {
 
     preLoader: function(){
         imageSources = []
