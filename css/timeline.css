@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx");
+  src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 section {
   padding: 100px 0;
+  padding-bottom: 0px;
 }
 
 html, body {
@@ -104,7 +112,7 @@ h1 {
   margin-left: -15px;
 }
 
-a {
+.timeline-card a{
   background: #3F51B5;
   color: #FFFFFF;
   padding: 8px 20px;
@@ -186,6 +194,16 @@ blockquote {
   border-radius: 15px;
   top: 0;
   right: 0;
+}
+
+footer{
+    background-color: #000;
+    color: #fff;
+}
+
+footer p{
+    margin: 0px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
