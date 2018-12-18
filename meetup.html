@@ -1,6 +1,51 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fnplus | Geek's Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script src="js/meetup/local.js"></script>
     <script src="js/meetup/api_key.js"></script>
@@ -27,325 +72,152 @@
         };
     </script>
     <link rel="stylesheet" type="text/css" href="https://a248.e.akamai.net/secure.meetupstatic.com/style/widget.css">
-    <script type="text/javascript" charset="utf-8">
-        mup_widget.with_jquery(function ($, ctx) {
-            var group = '',
-                months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                addLink = function (content, link) {
-                    return '<a target="_top" href="' + link + '">' + content + '</a>';
-                },
-                addImage = function (src, alt) {
-                    return src == "" ? '' : '<div class="mup-img-wrap"><img src="' + src + '" width="' + (
-                        $parameters.width - 50) + '" alt="' + alt + '" class="mup-img"/></div>';
-                },
-                addStarRating = function (rating) {
-                    var base_url =
-                        'https://a248.e.akamai.net/secure.meetupstatic.com/img/03784007994490629714917/star_';
-                    var starlink = '';
-                    if (rating == 0) {
-                        return 'Not Yet Rated';
-                    } else if (rating < 1.25) {
-                        starlink = "100.png";
-                    } else if (rating < 1.75) {
-                        starlink = "150.png";
-                    } else if (rating < 2.25) {
-                        starlink = "200.png";
-                    } else if (rating < 2.75) {
-                        starlink = "250.png";
-                    } else if (rating < 3.25) {
-                        starlink = "300.png";
-                    } else if (rating < 3.75) {
-                        starlink = "350.png";
-                    } else if (rating < 4.25) {
-                        starlink = "400.png";
-                    } else if (rating < 4.75) {
-                        starlink = "450.png";
-                    } else {
-                        starlink = "500.png";
-                    }
-                    return '<img src="' + base_url + starlink + '" alt="' + rating + '" />';
-
-                },
-                addLeadingZero = function (num) {
-                    return (num < 10) ? ('0' + num) : num;
-                },
-                getFormattedDate = function (millis) {
-                    var date = new Date(millis);
-                    return months[date.getMonth()] + ' ' + addLeadingZero(date.getDate()) + ', ' + date.getFullYear()
-                        .toString();
-                },
-                getFormattedTime = function (millis) {
-                    var time = new Date(millis),
-                        hours = time.getHours(),
-                        min = time.getMinutes(),
-                        ampm = (hours > 11) ? 'PM' : 'AM';
-                    min = (min < 10) ? ('0' + min) : min;
-                    hours = (hours == 0) ? 1 : hours;
-                    hours = (hours > 12) ? hours - 12 : hours;
-                    return hours + ':' + min + ' ' + ampm;
-                },
-                numberFormat = function (nStr) {
-                    nStr += '';
-                    x = nStr.split('.');
-                    x1 = x[0];
-                    x2 = x.length > 1 ? '.' + x[1] : '';
-                    var rgx = /(\d+)(\d{3})/;
-                    while (rgx.test(x1))
-                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                    return x1 + x2;
-                };
-            $.getJSON($queries.groups(), function (data) {
-                if (data.results.length == 0) {
-                    $('.mug-badge', ctx).width($parameters.width);
-                    $('.mug-badge', ctx).append(
-                        '<div class="mup-widget error">\
-							<div class="errorMsg">Oops. No results for "' +
-                        $parameters.urlname + '"</div>\
-					</div>');
-                } else {
-                    group = data.results[0];
-                    $('.mug-badge', ctx).width($parameters.width);
-                    $('.mug-badge', ctx).append(
-                        '<div class="mup-widget">\
-					<div class="mup-bd">\
-						<h3>' + addLink(
-                            group.name, group.link) +
-                        '</h3>\
-            <h4> <div style="padding-top:5px;"><span class="mup-tlabel">EST. ' +
-                        getFormattedDate(group.created) +
-                        '</span></div></h4>\
-						<span class="mup-stats">' + addImage(group[
-                            "group_photo"] ? group.group_photo.photo_link : "", group.name) +
-                        numberFormat(group.members) + '<span class="mup-tlabel"> ' + group.who +
-                        '</span></span>\
-            <span class="mup-stats"><div class="next-event"></div></span>\
-            <h4><span class="mup-button">' +
-                        addLink('JOIN', group.link) +
-                        '</span></h4>\
-					</div>\
-					<div class="mup-ft">\
-						<div class="mup-logo"><div style="float:left;">' +
-                        addLink(
-                            '<img src="https://a248.e.akamai.net/secure.meetupstatic.com/img/84869143793177372874/birddog/everywhere_widget.png">',
-                            'http://www.meetup.com') +
-                        '</div><div style="float:right;"><div style="float:right;">' +
-                        addStarRating(group.rating) +
-                        '</div><br><div style="float:right;"><span class="mup-tlabel">Group Rating</span></div></div></div>\
-						<div class="mup-getwdgt">' +
-                        addLink('ADD THIS TO YOUR SITE',
-                            'http://www.meetup.com/meetup_api/foundry/#' + $parameters._name.toLowerCase()
-                            .replace(/ /g, "-")) + '</div>\
-					</div>\
-				</div>'
-                    );
-
-                    $.getJSON($queries.events(), function (data) {
-                        if (data.status && data.status.match(/^200/) == null) {
-                            alert(data.status + ": " + data.details);
-                        } else {
-                            if (data.results.length == 0) {
-                                $('.next-event', ctx).append('<span class="mup-tlabel">' +
-                                    addLink('Suggest new ideas for Meetups!', group.link) +
-                                    '</span>');
-                            } else {
-                                var event = data.results[0];
-                                console.log(event);
-                                var venue = event.venue;
-                                console.log(venue);
-                                var city;
-                                if (!venue || !venue.city) {
-                                    city = group.city;
-                                } else {
-                                    city = venue.city;
-                                }
-                                var state_country;
-                                if (!venue || !venue.state) {
-                                    if (group.state == "") {
-                                        state_country = group.country.toUpperCase();
-                                    } else {
-                                        state_country = group.state;
-                                    }
-                                } else {
-                                    state_country = venue.state;
-                                }
-                                var venue_addr;
-                                if (venue) {
-                                    if (venue.name !== undefined) {
-                                        venue_addr = venue.name + " - ";
-                                    } else if (venue.address_1 !== undefined) {
-                                        venue_addr = venue.address_1 + " - ";
-                                    } else {
-                                        venue_addr = "";
-                                    }
-                                } else {
-                                    venue_addr = "";
-                                }
-                                var location = venue_addr + city + ", " + state_country;
-                                $('.next-event', ctx).append('<h4><div class="mup-tlabel">' +
-                                    getFormattedDate(event.time) + '   |   ' +
-                                    getFormattedTime(event.time) + "</div>" + addLink(event
-                                        .name, event.event_url) +
-                                    '<div class="mup-tlabel">' + location + "</div></h4>");
-                            }
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-    <style type="text/css" media="screen">
-        .next-event {}
-
-        .mug-badge {
-            font-family: "lucida grande", lucida, tahoma, helvetica, arial, sans-serif !important;
-            font-size: 12px;
-        }
-
-        .mug-badge .mup-widget,
-        .mug-badge .mup-widget .mup-hd a {
-            background: #1A1A1A;
-            color: #f2f2f2;
-        }
-
-        .mug-badge .mup-widget {
-            border-radius: 5px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            padding-top: 8px;
-        }
-
-        .mug-badge .mup-widget h3,
-        .mug-badge .mup-widget h4,
-        .mug-badge .mup-widget p {
-            line-height: 1.2 !important;
-            text-align: center;
-        }
-
-        .mug-badge .mup-widget h3 {
-            font-size: 18px;
-            color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        .mug-badge .mup-widget h4 {
-            font-size: 13px;
-        }
-
-        .mug-badge .mup-widget h5 {
-            font-size: 20px;
-            margin: 0 auto;
-            text-align: center;
-            letter-spacing: -1px;
-            text-shadow: 1px 1px 1px #1A1A1A;
-        }
-
-        .mug-badge .mup-widget p {
-            text-align: center;
-        }
-
-        .mug-badge .mup-widget .mup-bd,
-        .mug-badge .mup-widget .mup-timeline,
-        .mug-badge .mup-widget .mup-bd p {
-            color: #f2f2f2;
-        }
-
-        .mug-badge .mup-widget .mup-bd {
-            border-radius: 5px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            padding: 8px 6px;
-            margin: 0 8px;
-            background: #333;
-        }
-
-        .mug-badge .mup-widget a,
-        .mug-badge .mup-widget a:active,
-        .mug-badge .mup-widget a:visited {
-            color: #f2f2f2;
-            text-decoration: none;
-        }
-
-        .mug-badge .mup-widget a:hover {
-            color: #005CE6;
-            text-decoration: none;
-        }
-
-        .mug-badge .mup-widget .mup-tlabel {
-            font-size: 10px;
-            color: #AAA;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-left: 2px;
-            padding-right: 2px;
-        }
-
-        .mug-badge .mup-widget .mup-stats {
-            display: block;
-            margin: 6px 0;
-            padding: 4px;
-            text-align: center;
-            background: #1A1A1A;
-            border-radius: 3px;
-            -moz-border-radius: 3px;
-            -webkit-border-radius: 3px;
-        }
-
-        .mug-badge .mup-widget .mup-button {
-            width: 30px;
-            display: block;
-            margin: 0 auto;
-            padding: 2px 4px;
-            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2266BB), to(#102f56));
-            background: -moz-linear-gradient(0% 100% 90deg, #102F56, #2266BB);
-            background-color: #2266BB;
-            border-radius: 3px;
-            -moz-border-radius: 3px;
-            -webkit-border-radius: 3px;
-            font-size: 10px;
-            font-weight: bold;
-            color: #f2f2f2;
-            text-align: center;
-            border: 1px solid #0d2748;
-        }
-
-        .mug-badge .mup-widget .mup-button:hover {
-            color: #005CE6;
-        }
-
-        .mug-badge .mup-widget .mup-img {
-            overflow: hidden;
-            border-radius: 3px;
-            -moz-border-radius: 3px;
-            -webkit-border-radius: 3px;
-        }
-
-        .mug-badge .mup-widget .mup-img-wrap {
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-
-        .mug-badge .mup-widget .mup-ft .mup-getwdgt {
-            padding: 3px 0;
-            font-size: 8px;
-            text-align: center;
-            background: #0A0A0A;
-            -webkit-border-bottom-right-radius: 5px;
-            -webkit-border-bottom-left-radius: 5px;
-            -moz-border-radius-bottomright: 5px;
-            -moz-border-radius-bottomleft: 5px;
-            border-bottom-right-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-
-        .mug-badge .mup-widget .mup-ft .mup-logo {
-            padding: 6px 8px;
-            height: 25px;
-        }
-    </style>
+    <script src="js/meetup/meetup.js"></script>
+    <link rel="stylesheet" href="css/meetup.css">
 </head>
 
-<body class="framed-mup-widget">
-    <div class="mug-badge"></div>
+<body>
+    <nav id="colorlib-main-nav" role="navigation">
+        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+        <div class="js-fullheight colorlib-table">
+            <div class="colorlib-table-cell js-fullheight">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active"><a href="work.html">What we do</a></li>
+                            <li><a href="https://medium.com/fnplus">Blog</a></li>
+                            <li><a href="timeline.html">Our Journey</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="colorlib-page">
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="colorlib-navbar-brand">
+                            <a class="colorlib-logo" href="index.html">Fnplus</a>
+                        </div>
+                        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="colorlib-work" style="background:rgba(121, 242, 192, 0.23)">
+            <!-- Meetup Widget -->
+            <div class="framed-mup-widget">
+                <div class="mug-badge"></div>
+            </div>
+
+            <!-- <iframe width="225" height="570" src="http://meetu.ps/3jFc02" frameborder="0"></iframe> -->
+        </div>
+    </div>
+
+    <!-- Begin Mailchimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc_embed_signup {
+            background: #fff;
+            clear: left;
+            font: 14px Helvetica, Arial, sans-serif;
+            width: 100%;
+        }
+
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+    <div id="mc_embed_signup">
+        <form action="https://xyz.us17.list-manage.com/subscribe/post?u=699626334d1f5e2970a64e0f9&amp;id=f38d0264ba"
+            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+            novalidate>
+            <div id="mc_embed_signup_scroll">
+                <label for="mce-EMAIL">Subscribe to our mailing list</label>
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"
+                    required>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_699626334d1f5e2970a64e0f9_f38d0264ba"
+                        tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                        class="button"></div>
+            </div>
+        </form>
+    </div>
+
+    <!--End mc_embed_signup-->
+    </div>
+    <footer>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-pb-sm text-center">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h3>Office</h3>
+                                <p>A-6,Industrial Estate,Mogappair West, Chennai, Tamil Nadu 600037</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-pb-sm text-center">
+                        <h2>Get in Touch</h2>
+                        <p><a href="mailto:support@fnplus.xyz">support@fnplus.xyz</a></p>
+                    </div>
+                    <div class="col-md-4 col-pb-sm text-center">
+                        <h2>Social</h2>
+                        <p class="colorlib-social-icons">
+                            <a href="https://www.facebook.com/fnplusofficial/"><i class="icon-facebook4"></i></a>
+                            <a href="https://twitter.com/fnplusofficial"><i class="icon-twitter3"></i></a>
+                            <a href="https://instagram.com/fnplusofficial"><i class="icon-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/fnplus/"><i class="icon-linkedin"></i></a>
+                            <a href="https://github.com/fnplus"><i class="icon-github"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <span class="block">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="icon-heart"
+                                    aria-hidden="true"></i> by Fnplus & <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+
+    <!-- Main JS (Do not remove) -->
+    <script src="js/main.js"></script>
+
+
+
 </body>
 
 </html>
