@@ -89,9 +89,6 @@ mup_widget.with_jquery(function ($, ctx) {
                 numberFormat(group.members) + '<span class="mup-tlabel"> ' + group.who +
                 '</span></span>\
             <span class="mup-stats"><div class="next-event"></div></span>\
-            <h4><span class="mup-button">' +
-                addLink('JOIN', group.link) +
-                '</span></h4>\
 					</div>\
 					<div class="mup-ft">\
 						<div class="mup-logo"><div style="float:left;">' +
@@ -100,13 +97,7 @@ mup_widget.with_jquery(function ($, ctx) {
                     'http://www.meetup.com') +
                 '</div><div style="float:right;"><div style="float:right;">' +
                 addStarRating(group.rating) +
-                '</div><br><div style="float:right;"><span class="mup-tlabel">Group Rating</span></div></div></div>\
-						<div class="mup-getwdgt">' +
-                addLink('ADD THIS TO YOUR SITE',
-                    'http://www.meetup.com/meetup_api/foundry/#' + $parameters._name.toLowerCase()
-                    .replace(/ /g, "-")) + '</div>\
-					</div>\
-				</div>'
+                '</div><br><div style="float:right;"><span class="mup-tlabel">Group Rating</span></div></div></div>'
             );
 
             $.getJSON($queries.events(), function (data) {
@@ -115,7 +106,7 @@ mup_widget.with_jquery(function ($, ctx) {
                 } else {
                     if (data.results.length == 0) {
                         $('.next-event', ctx).append('<span class="mup-tlabel">' +
-                            addLink('Suggest new ideas for Meetups!', group.link) +
+                            addLink('No Meetup as of Now. Suggest new ideas for Meetups!', group.link) +
                             '</span>');
                     } else {
                         var event = data.results[0];
