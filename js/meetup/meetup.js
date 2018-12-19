@@ -111,9 +111,9 @@ mup_widget.with_jquery(function ($, ctx) {
                     alert(data.status + ": " + data.details);
                 } else {
                     if (data.results.length == 0) {
-                        $('.next-event', ctx).append('<span class="mup-tlabel mup-meetups">' +
-                            addLink('No Meetup as of Now. Suggest new ideas for Meetups!', group.link) +
-                            '</span>');
+                        $('.next-event', ctx).append('<span class="mup-tlabel mup-meetups">No Jams at the Moment.\
+                        <br>\
+                         Subscribe to our Mailing List to be Notified.</span>');
                     } else {
                         var event = data.results[0];
                         console.log(event);
