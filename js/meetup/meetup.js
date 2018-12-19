@@ -66,7 +66,6 @@ mup_widget.with_jquery(function ($, ctx) {
         };
     $.getJSON($queries.groups(), function (data) {
         if (data.results.length == 0) {
-            $('.mug-badge', ctx).width($parameters.width);
             $('.mug-badge', ctx).append(
                 '<div class="mup-widget error">\
 							<div class="errorMsg">Oops. No results for "' +
@@ -74,30 +73,37 @@ mup_widget.with_jquery(function ($, ctx) {
 					</div>');
         } else {
             group = data.results[0];
-            $('.mug-badge', ctx).width($parameters.width);
             $('.mug-badge', ctx).append(
-                '<div class="mup-widget">\
+                '<div class="mup-widget ">\
 					<div class="mup-bd">\
 						<h3>' + addLink(
                     group.name, group.link) +
                 '</h3>\
-            <h4> <div style="padding-top:5px;"><span class="mup-tlabel">EST. ' +
+            <h4> <div style="padding-top:5px;"><span class="mup-tlabel mup-est">EST. ' +
                 getFormattedDate(group.created) +
                 '</span></div></h4>\
 						<span class="mup-stats">' + addImage(group[
                     "group_photo"] ? group.group_photo.photo_link : "", group.name) +
-                numberFormat(group.members) + '<span class="mup-tlabel"> ' + group.who +
+                numberFormat(group.members) + '<span class="mup-tlabel mup-who"> ' + group.who +
                 '</span></span>\
-            <span class="mup-stats"><div class="next-event"></div></span>\
+            <span class="mup-stats mup-meetups"><div class="next-event"></div></span>\
 					</div>\
 					<div class="mup-ft">\
-						<div class="mup-logo"><div style="float:left;">' +
-                addLink(
-                    '<img src="https://a248.e.akamai.net/secure.meetupstatic.com/img/84869143793177372874/birddog/everywhere_widget.png">',
-                    'http://www.meetup.com') +
-                '</div><div style="float:right;"><div style="float:right;">' +
-                addStarRating(group.rating) +
-                '</div><br><div style="float:right;"><span class="mup-tlabel">Group Rating</span></div></div></div>'
+                         <div class="mup-logo"><div style="float:left;">' +
+
+                // Meetup Logo
+
+                // addLink(
+                //     '<img src="https://a248.e.akamai.net/secure.meetupstatic.com/img/84869143793177372874/birddog/everywhere_widget.png">',
+                //     'http://www.meetup.com') +
+
+                // Meetup Rating
+
+                // '</div><div style="float:right;"><div style="float:right;">' +
+                // addStarRating(group.rating) +
+                // '</div><br><div style="float:right;"><span class="mup-tlabel">Group Rating</span></div></div>' +
+
+                '</div>'
             );
 
             $.getJSON($queries.events(), function (data) {
@@ -105,7 +111,7 @@ mup_widget.with_jquery(function ($, ctx) {
                     alert(data.status + ": " + data.details);
                 } else {
                     if (data.results.length == 0) {
-                        $('.next-event', ctx).append('<span class="mup-tlabel">' +
+                        $('.next-event', ctx).append('<span class="mup-tlabel mup-meetups">' +
                             addLink('No Meetup as of Now. Suggest new ideas for Meetups!', group.link) +
                             '</span>');
                     } else {

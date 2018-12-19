@@ -63,22 +63,30 @@
  .mug-badge .mup-widget a,
  .mug-badge .mup-widget a:active,
  .mug-badge .mup-widget a:visited {
-     color: black;
+     color: #333333;
      text-decoration: none;
  }
 
  .mug-badge .mup-widget a:hover {
-     color: #005CE6;
+     color: black;
      text-decoration: none;
  }
 
- .mup-tlabel {
-     font-size: 25px !important;
+ .mup-who {
+     font-size: 15px !important;
+ }
+
+ .mup-est {
+     font-size: 10px !important;
+ }
+
+ .mup-meetups {
+     margin-top: 40px !important;
  }
 
  .mug-badge .mup-widget .mup-tlabel {
-     font-size: 10px;
-     color: black;
+     font-size: 25px;
+     color: #333333;
      padding-top: 5px;
      padding-bottom: 5px;
      padding-left: 2px;
